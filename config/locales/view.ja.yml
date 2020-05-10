@@ -1,0 +1,21 @@
+ja:
+  view:
+    task_name: タスク名
+    content: 内容
+    task_list: タスク一覧
+    check_contents: 詳細を確認する
+    create_task: タスクを作成する
+    edit_task: タスクを編集する
+    delete_task: タスクを削除する
+    task_contents: タスク詳細画面
+    confirm: 本当に削除していいですか？
+    back_task_list: タスク一覧に戻る
+    error: 件のエラーがあります
+  notice:
+    create: タスクを作成しました！
+    update: タスクを編集しました！
+    destroy: タスクを削除しました！
+  helpers:
+    submit:
+      create: 登録する
+      update: 更新する  
