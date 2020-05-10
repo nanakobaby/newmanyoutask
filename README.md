@@ -56,3 +56,19 @@ Labelテーブル
 | ------- | ------- | ----------- |
 | task_id | integer | foreign_key |
 | user_id | integer | foreign_key |
+
+#デプロイ方法
+
+このアプリで使っているRubyフレームワークのバージョンは、
+
+Ruby on Rails 5.2.4
+
+$ heroku login herokuにログインします。
+
+$ heroku create 新しいリポジトリを作る。　自動でリモートリポジトリとして登録されます。
+
+$ git push heroku master herokuにpushします。
+
+$ heroku run rails db:migrate heroku上にデータベース作成。
+
+アプリケーションにアクセスできれば成功です。Herokuアプリのアドレスは、https://アプリ名.herokuapp.com/ のように設定されます。
