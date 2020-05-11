@@ -1,12 +1,12 @@
 # README
 
-##Name
+## Name
 
 ====
 
 Task management
 
-##Overview
+## Overview
 
 Task managementは、タスク管理ができるツールで、Ruby on Railsで記述されています。
 
