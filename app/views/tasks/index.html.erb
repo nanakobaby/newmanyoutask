@@ -2,11 +2,13 @@
 <p><%= notice %></p>
 <table>
   <tr>
+    <th><%= t('view.enddeadline')%></th>
     <th><%= t('view.task_name') %></th>
     <th><%= t('view.content') %></th>
   </tr>
 <% @tasks.each do |task| %>
   <tr>
+    <td><%= task.end_on %></td>
     <td class="task_row"><%= task.task_name %></td>
     <td><%= task.content %></td>
     <td><%= link_to t('view.check_contents'), task_path(task.id) %></td>

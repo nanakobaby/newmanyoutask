@@ -9,6 +9,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="date">
+    <%= form.label :enddeadline %>
+    <%= form.date_field :end_on %>
+  </div>
   <div class="task_name">
     <%= form.label :task_name %>
     <%= form.text_field :task_name %>

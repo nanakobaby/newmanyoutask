@@ -11,6 +11,8 @@ ja:
     confirm: 本当に削除していいですか？
     back_task_list: タスク一覧に戻る
     error: 件のエラーがあります
+    enddeadline: 終了期限
+    sort_end_date: 終了期限でソートする
   notice:
     create: タスクを作成しました！
     update: タスクを編集しました！
@@ -18,4 +20,4 @@ ja:
   helpers:
     submit:
       create: 登録する
-      update: 更新する  
+      update: 更新する
