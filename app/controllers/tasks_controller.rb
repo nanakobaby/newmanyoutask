@@ -9,6 +9,10 @@ class TasksController < ApplicationController
       #値がなければ、Task.allで取り出せるそのままの値を出力
       @tasks = Task.all.order(created_at: :desc)
     end
+
+    if params[:search].present?
+      @tasks = Task.where('task_name LIKE ?', "%#{ params[:task_name] }%")
+    end
   end
 
   def new

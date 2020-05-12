@@ -1,3 +1,17 @@
+<%= link_to t('view.create_task'), new_task_path %>
+<%= link_to t('view.sort_end_date'), tasks_path(sort_expired: "true") %>
+<br>
+<div class="search">
+  <%= form_with url: tasks_path, method: :get, local: true do |form| %>
+    <div class="task_name">
+      <%= form.label :task_name, t('view.task_name') %>
+      <%= form.text_field :task_name %>
+    </div>
+    <%= form.hidden_field :search, value: 'true' %>
+    <%= form.submit (t('helpers.submit.search')) %>
+  <% end %>
+</div>
+
 <h1><%= t('view.task_list')%></h1>
 <p><%= notice %></p>
 <table>
@@ -17,6 +31,3 @@
   </tr>
 <% end %>
 </table>
-<br>
-<%= link_to t('view.sort_end_date'), tasks_path(sort_expired: "true") %>
-<%= link_to t('view.create_task'), new_task_path %>
