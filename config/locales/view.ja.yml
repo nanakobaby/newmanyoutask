@@ -13,6 +13,10 @@ ja:
     error: 件のエラーがあります
     enddeadline: 終了期限
     sort_end_date: 終了期限でソートする
+    status: ステータス
+    wip: 着手中
+    done: 完了
+    peding: 未着手
   notice:
     create: タスクを作成しました！
     update: タスクを編集しました！
