@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     #params[:sort_expired]に値があれば、終了期限でソートした値を表示させる
     if params[:sort_expired]
-      @tasks = Task.all.order(end_on: :asc)
+      @tasks = Task.all.order(end_on: :desc)
     else
       #値がなければ、Task.allで取り出せるそのままの値を出力
       @tasks = Task.all.order(created_at: :desc)

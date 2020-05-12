@@ -8,7 +8,7 @@
   </tr>
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= task.end_on %></td>
+    <td class="date_row"><%= task.end_on %></td>
     <td class="task_row"><%= task.task_name %></td>
     <td><%= task.content %></td>
     <td><%= link_to t('view.check_contents'), task_path(task.id) %></td>
