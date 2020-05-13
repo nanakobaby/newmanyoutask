@@ -11,7 +11,13 @@ class TasksController < ApplicationController
     end
 
     if params[:search].present?
-      @tasks = Task.where('task_name LIKE ?', "%#{ params[:task_name] }%")
+      if params[:task_name].present? && params[:status].present?
+        @tasks = Task.where(status: params[:status]).where('task_name LIKE ?', "%#{ params[:task_name] }%")
+      elsif params[:task_name].present?
+        @tasks = Task.where('task_name LIKE ?', "%#{ params[:task_name] }%")
+      elsif params[:status].present?
+        @tasks = Task.where(status: params[:status])
+      end
     end
   end
 
@@ -55,4 +61,4 @@ class TasksController < ApplicationController
   def set_task
     @task = Task.find(params[:id])
   end
-end
+  end
