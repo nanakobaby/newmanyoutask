@@ -2,7 +2,14 @@ ja:
   activerecord:
     models:
       task: タスク
+      priority: 優先順位
     attributes:
       task:
         task_name: タスク名
         content: 内容
+        enddeadline: 終了期限
+        status: ステータス
+        priority: 優先順位
+        high: 高
+        medium: 中
+        row: 低
