@@ -1,5 +1,6 @@
-<%= link_to t('view.create_task'), new_task_path %>
+<%= link_to t('view.create_task'), new_task_path %><br>
 <%= link_to t('view.sort_end_date'), tasks_path(sort_expired: "true") %>
+<%= link_to t('view.sort_high_priority'), tasks_path(sort_expired: "true")%>
 <br>
 <div class="search">
   <%= form_with url: tasks_path, method: :get, local: true do |form| %>
@@ -9,7 +10,7 @@
     </div>
     <div class="status">
       <%= form.label :status, t('view.status') %>
-      <%= form.select :status, [ t('view.wip'), t('view.peding'), t('view.done') ], {include_blank: true}%>
+      <%= form.select :status, [ t('view.wip'), t('view.peding'), t('view.done') ] %>
     </div>
     <%= form.hidden_field :search, value: 'true' %>
     <%= form.submit (t('helpers.submit.search')) %>
@@ -20,10 +21,11 @@
 <p><%= notice %></p>
 <table>
   <tr>
-    <th><%= t('view.enddeadline')%></th>
+    <th><%= t('view.enddeadline') %></th>
     <th><%= t('view.task_name') %></th>
     <th><%= t('view.content') %></th>
-    <th><%= t('view.status')%></th>
+    <th><%= t('view.status') %></th>
+    <th><%= t('view.priority') %></th>
   </tr>
 <% @tasks.each do |task| %>
   <tr>
@@ -31,6 +33,7 @@
     <td class="task_row"><%= task.task_name %></td>
     <td><%= task.content %></td>
     <td><%= task.status %></td>
+    <td><%= task.priority %></td>
     <td><%= link_to t('view.check_contents'), task_path(task.id) %></td>
     <td><%= link_to t('view.edit_task'), edit_task_path(task.id) %></td>
     <td><%= link_to t('view.delete_task'), task_path(task.id), method: :delete, data: {confirm: t('view.confirm')} %></td>

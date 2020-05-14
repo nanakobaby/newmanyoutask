@@ -13,10 +13,15 @@ ja:
     error: 件のエラーがあります
     enddeadline: 終了期限
     sort_end_date: 終了期限でソートする
+    sort_high_priority: 優先順位の高い順にソートする
     status: ステータス
     wip: 着手中
     done: 完了
+    priority: 優先順位
     peding: 未着手
+    high: 高
+    medium: 中
+    row: 低
   notice:
     create: タスクを作成しました！
     update: タスクを編集しました！

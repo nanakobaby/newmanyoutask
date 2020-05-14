@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2020_05_13_051437) do
+ActiveRecord::Schema.define(version: 2020_05_14_024426) do
 
   enable_extension "plpgsql"
 
@@ -9,6 +9,7 @@ ActiveRecord::Schema.define(version: 2020_05_13_051437) do
     t.datetime "updated_at", null: false
     t.date "end_on"
     t.string "status"
+    t.integer "priority"
     t.index ["task_name", "status"], name: "index_tasks_on_task_name_and_status"
   end
 
