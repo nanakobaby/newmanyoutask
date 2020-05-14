@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe 'タスク管理機能', type: :model do
   it 'task_nameが空ならバリデーションが通らない' do
     task = Task.new(task_name: '', content: '失敗テスト')

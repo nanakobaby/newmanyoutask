@@ -4,6 +4,7 @@ FactoryBot.define do
     content {'content'}
     end_on {'2020-05-11'}
     status {(I18n.t('view.wip'))}
+    priority {'高'}
   end
 
   factory :new_task, class: Task do
@@ -11,5 +12,6 @@ FactoryBot.define do
     content {'new_content'}
     end_on {'2020-05-12'}
     status {(I18n.t('view.wip'))}
+    priority {'高'}
   end
 end
