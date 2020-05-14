@@ -3,11 +3,13 @@ FactoryBot.define do
     task_name {'task'}
     content {'content'}
     end_on {'2020-05-11'}
+    status {(I18n.t('view.wip'))}
   end
 
   factory :new_task, class: Task do
     task_name {'new_task'}
     content {'new_content'}
     end_on {'2020-05-12'}
+    status {(I18n.t('view.wip'))}
   end
 end
