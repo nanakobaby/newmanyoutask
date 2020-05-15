@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
+  # ログインユーザを禁止する
+  def forbid_login_user
+    if @current_user
+      flash[:notice] = t('notice.already_logged_in')
+      redirect_to tasks_path
+    end
+  end
 end
