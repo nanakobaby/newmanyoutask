@@ -22,12 +22,22 @@ ja:
     high: 高
     medium: 中
     row: 低
+    signup: サインアップ
+    login: ログイン
+    logout: ログアウト
+    ofpage: のページ
+    email: メールアドレス
+    password: パスワード
+    login_failed: ログインに失敗しました！
+    logged_out: ログアウトしました！
+    profile: プロフィール
+
   notice:
     create: タスクを作成しました！
     update: タスクを編集しました！
     destroy: タスクを削除しました！
   helpers:
-    submit:
-      create: 登録する
-      update: 更新する
-      search: 検索する
+      submit:
+        create: 登録する
+        update: 更新する
+        search: 検索する

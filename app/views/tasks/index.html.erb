@@ -20,27 +20,28 @@
 
 <h1><%= t('view.task_list')%></h1>
 <p><%= notice %></p>
-<div class="">
-<table align="center">
-  <tr>
-    <th><%= t('view.enddeadline') %></th>
-    <th><%= t('view.task_name') %></th>
-    <th><%= t('view.content') %></th>
-    <th><%= t('view.status') %></th>
-    <th><%= t('view.priority') %></th>
-  </tr>
-<% @tasks.each do |task| %>
-  <tr>
-    <td class="date_row"><%= task.end_on %></td>
-    <td class="task_row"><%= task.task_name %></td>
-    <td><%= task.content %></td>
-    <td><%= task.status %></td>
-    <td><%= task.priority %></td>
-    <td><%= link_to t('view.check_contents'), task_path(task.id) %></td>
-    <td><%= link_to t('view.edit_task'), edit_task_path(task.id) %></td>
-    <td><%= link_to t('view.delete_task'), task_path(task.id), method: :delete, data: {confirm: t('view.confirm')} %></td>
-  </tr>
-<% end %>
-<%= paginate @tasks %>
-</table>
+<div class="table">
+  <table align="center">
+    <tr>
+      <th><%= t('view.enddeadline') %></th>
+      <th><%= t('view.task_name') %></th>
+      <th><%= t('view.content') %></th>
+      <th><%= t('view.status') %></th>
+      <th><%= t('view.priority') %></th>
+    </tr>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td class="date_row"><%= task.end_on %></td>
+      <td class="task_row"><%= task.task_name %></td>
+      <td><%= task.content %></td>
+      <td><%= task.status %></td>
+      <td><%= task.priority %></td>
+      <td><%= link_to t('view.check_contents'), task_path(task.id) %></td>
+      <td><%= link_to t('view.edit_task'), edit_task_path(task.id) %></td>
+      <td><%= link_to t('view.delete_task'), task_path(task.id), method: :delete, data: {confirm: t('view.confirm')} %></td>
+    </tr>
+  <% end %>
+  <%= paginate @tasks %>
+  </table>
+</div>
 </div>
