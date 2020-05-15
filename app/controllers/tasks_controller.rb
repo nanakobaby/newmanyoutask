@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -21,6 +22,8 @@ class TasksController < ApplicationController
         @tasks = Task.status(params[:status]).page(params[:page]).per(10)
       end
     end
+
+
   end
 
   def new

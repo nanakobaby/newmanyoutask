@@ -36,6 +36,7 @@ ja:
     create: タスクを作成しました！
     update: タスクを編集しました！
     destroy: タスクを削除しました！
+    login_needed: ログインが必要です！
   helpers:
       submit:
         create: 登録する
