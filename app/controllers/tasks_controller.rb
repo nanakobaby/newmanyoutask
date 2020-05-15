@@ -5,12 +5,12 @@ class TasksController < ApplicationController
   def index
     #params[:sort_expired]に値があれば、終了期限でソートした値を表示させる
     if params[:sort_expired]
-      @tasks = Task.all.order(end_on: :desc).page(params[:page]).per(10)
+      @tasks = current_user.tasks.order(end_on: :desc).page(params[:page]).per(10)
     elsif params[:sort_priority]
-      @tasks = Task.all.order(priority: :asc).page(params[:page]).per(10)
+      @tasks = current_user.tasks.order(priority: :asc).page(params[:page]).per(10)
     elsif
       #値がなければ、Task.allで取り出せるそのままの値を出力
-      @tasks = Task.all.order(created_at: :desc).page(params[:page]).per(10)
+      @tasks = current_user.tasks.order(created_at: :desc).page(params[:page]).per(10)
     end
 
     if params[:search].present?
