@@ -22,8 +22,6 @@ class TasksController < ApplicationController
         @tasks = Task.status(params[:status]).page(params[:page]).per(10)
       end
     end
-
-
   end
 
   def new

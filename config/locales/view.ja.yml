@@ -31,6 +31,8 @@ ja:
     login_failed: ログインに失敗しました！
     logged_out: ログアウトしました！
     profile: プロフィール
+    admin_screen: 管理画面
+    user_list: ユーザ一覧
 
   notice:
     create: タスクを作成しました！
@@ -39,6 +41,7 @@ ja:
     login_needed: ログインが必要です！
     already_logged_in: すでにログインしています！
     not_authorized: 権限がありません！
+    not_administrator: あなたは管理者ではありません！
   helpers:
       submit:
         create: 登録する
