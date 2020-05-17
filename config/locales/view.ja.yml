@@ -38,9 +38,10 @@ ja:
     user_update: ユーザを更新する
 
   notice:
-    create: タスクを作成しました！
-    update: タスクを編集しました！
-    destroy: タスクを削除しました！
+    task_create: タスクを作成しました！
+    task_update: タスクを編集しました！
+    task_deleted: タスクを削除しました！
+    not_deleted: 削除できません！
     login_needed: ログインが必要です！
     already_logged_in: すでにログインしています！
     not_authorized: 権限がありません！

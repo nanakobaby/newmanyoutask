@@ -1,4 +1,4 @@
-class Users::TasksController < ApplicationController
+class TasksController < ApplicationController
   before_action :authenticate_user
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
@@ -32,7 +32,7 @@ class Users::TasksController < ApplicationController
     #login中のユーザのtaskをnew(build)する。
     @task = current_user.tasks.build(task_params)
     if @task.save
-      redirect_to tasks_path, notice: t('notice.user_create')
+      redirect_to tasks_path, notice: t('notice.task_create')
     else
       render :new
     end
@@ -46,7 +46,7 @@ class Users::TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: t('notice.update')
+      redirect_to tasks_path, notice: t('notice.task_update')
     else
       render :edit
     end
@@ -54,7 +54,7 @@ class Users::TasksController < ApplicationController
 
   def destroy
     if @task.destroy
-      redirect_to tasks_path, notice: t('notice.deleted')
+      redirect_to tasks_path, notice: t('notice.task_deleted')
     else
       redirect_to admin_users_path, notice: t('notice.notdeleted')
     end
