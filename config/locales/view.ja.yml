@@ -36,6 +36,9 @@ ja:
     user_delete: ユーザを削除する
     user_create: ユーザを作成する
     user_update: ユーザを更新する
+    name: 名前
+    email: メールアドレス
+    back_admin_screen: 管理画面に戻る
 
   notice:
     task_create: タスクを作成しました！
