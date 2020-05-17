@@ -32,7 +32,7 @@ class TasksController < ApplicationController
     #login中のユーザのtaskをnew(build)する。
     @task = current_user.tasks.build(task_params)
     if @task.save
-      redirect_to tasks_path, notice: t('notice.create')
+      redirect_to tasks_path, notice: t('notice.user_create')
     else
       render :new
     end
@@ -53,8 +53,11 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy
-    redirect_to tasks_path, notice: t('notice.destroy')
+    if @task.destroy
+      redirect_to tasks_path, notice: t('notice.deleted')
+    else
+      redirect_to admin_users_path, notice: t('notice.notdeleted')
+    end
   end
 
   private
@@ -65,4 +68,4 @@ class TasksController < ApplicationController
   def set_task
     @task = Task.find(params[:id])
   end
-  end
+end

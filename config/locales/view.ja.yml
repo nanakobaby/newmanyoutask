@@ -33,6 +33,8 @@ ja:
     profile: プロフィール
     admin_screen: 管理画面
     user_list: ユーザ一覧
+    user_delete: ユーザを削除する
+    user_create: ユーザを作成する
 
   notice:
     create: タスクを作成しました！
@@ -42,6 +44,11 @@ ja:
     already_logged_in: すでにログインしています！
     not_authorized: 権限がありません！
     not_administrator: あなたは管理者ではありません！
+    user_deleted: ユーザを削除しました！
+    user_create: ユーザを登録しました！
+    user_update: ユーザを更新しました！
+    user_deleted: ユーザを削除しました！
+    user_not_deleted: ユーザを削除できません！
   helpers:
       submit:
         create: 登録する
