@@ -35,6 +35,7 @@ ja:
     user_list: ユーザ一覧
     user_delete: ユーザを削除する
     user_create: ユーザを作成する
+    user_update: ユーザを更新する
 
   notice:
     create: タスクを作成しました！

@@ -29,7 +29,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to admin_user_path(@user), notice: t('notice.user_update')
+      redirect_to admin_users_path, notice: t('notice.user_update')
     else
       render :new
     end
