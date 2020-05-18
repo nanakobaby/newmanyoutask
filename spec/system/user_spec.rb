@@ -22,7 +22,7 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
 
   describe "セッション機能のテスト" do
     before do
-      @user = create(:user)
+      @user = FactoryBot.create(:user)
     end
     context "ユーザのデータがあってログインしていない場合" do
       it "ログインできること" do
@@ -65,7 +65,7 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
   describe "管理画面のテスト" do
     context "アドミンユーザがない場合" do
       it "管理者は管理画面にアクセスできること" do
-        create(:admin_user)
+        FactoryBot.create(:admin_user)
         visit new_session_path
         fill_in "session_email", with: "admin@example.com"
         fill_in "session_password", with: "000000"
@@ -89,7 +89,7 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
 
     context "管理者でログインしている場合" do
       before do
-        create(:admin_user)
+        FactoryBot.create(:admin_user)
         visit new_session_path
         fill_in "session_email", with: "admin@example.com"
         fill_in "session_password", with: "000000"
@@ -108,13 +108,13 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
       end
 
       it "管理者はユーザ詳細画面にアクセスできること" do
-        @user = create(:user)
+        @user = FactoryBot.create(:user)
         visit admin_user_path(id: @user.id)
         expect(page).to have_content "sample"
       end
 
       it "管理者はユーザの編集画面からユーザを編集できること" do
-        @user = create(:user)
+        @user = FactoryBot.create(:user)
         visit edit_admin_user_path(id: @user.id)
         fill_in 'user_name', with: 'sample2'
         fill_in 'user_email', with: 'sample2@example.com'
@@ -125,7 +125,7 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
       end
 
       it "管理者はユーザの削除をできること" do
-        @user = create(:user)
+        @user = FactoryBot.create(:user)
         visit admin_users_path
         click_on "ユーザを削除する", match: :first
         page.driver.browser.switch_to.alert.accept
