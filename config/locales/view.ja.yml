@@ -39,6 +39,7 @@ ja:
     name: 名前
     email: メールアドレス
     back_admin_screen: 管理画面に戻る
+    label: ラベル
 
   notice:
     task_create: タスクを作成しました！

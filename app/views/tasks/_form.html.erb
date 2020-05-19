@@ -29,6 +29,12 @@
     <%= form.label :priority %>
     <%= form.select :priority, [ t('view.high'), t('view.middle'), t('view.row')], { include_blank: true } %>
   </div>
+  <div class="label">
+    <% Label.all.each do |label| %>
+      <%= form.check_box :label_ids, { multiple: true, checked: @task.task_labels.find_by(id: label.id).present?, include_hidden: false }, label[:id] %>
+      <label style="background-color: aquamarine"><%= label.name %></label>
+    <% end %>
+  </div>
   <%= form.submit %>
 <% end %>
 <%= link_to t('view.back_task_list'), tasks_path %>

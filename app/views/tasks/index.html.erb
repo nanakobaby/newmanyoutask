@@ -13,6 +13,9 @@
       <%= form.label :status, t('view.status') %>
       <%= form.select :status, [ t('view.wip'), t('view.peding'), t('view.done') ], { include_blank: true } %>
     </div>
+    <div class="label">
+      <%= form.select("label_id", Label.pluck(:name, :id), { include_blank: true }) %>
+    </div>
     <%= form.hidden_field :search, value: 'true' %>
     <%= form.submit (t('helpers.submit.search')) %>
   <% end %>
