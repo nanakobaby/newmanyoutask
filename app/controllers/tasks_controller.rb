@@ -22,6 +22,7 @@ class TasksController < ApplicationController
         @tasks = Task.status(params[:status]).page(params[:page]).per(10)
       end
     end
+    @tasks = @tasks.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
   end
 
   def new
