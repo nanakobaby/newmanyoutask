@@ -1,8 +1,13 @@
 require 'rails_helper'
 RSpec.describe 'タスク管理機能', type: :system do
   before do
-    @task = FactoryBot.create(:task)
-    @new_task = FactoryBot.create(:new_task)
+    @user = FactoryBot.create(:user)
+    @task = FactoryBot.create(:task, user: @user)
+    @new_task = FactoryBot.create(:new_task, user: @user)
+    visit new_session_path
+    fill_in "session_email", with: "sample@example.com"
+    fill_in "session_password", with: "000000"
+    click_button (I18n.t('view.login'))
   end
 
   describe 'タスク一覧画面' do
@@ -23,10 +28,6 @@ RSpec.describe 'タスク管理機能', type: :system do
     end
 
     context 'scopeメソッドで検索をした場合' do
-      before do
-        @task = FactoryBot.create(:task)
-        @new_task = FactoryBot.create(:new_task)
-      end
       it "scopeメソッドでタスク名検索ができる" do
         #タスク一覧ページに飛ぶ
         visit tasks_path

@@ -1,0 +1,5 @@
+<h1><%= @user.name %><%= t('view.ofpage') %></h1>
+<p><%= t('view.email') %>:<%= @user.email %></p>
+
+<%= link_to t('view.create_task'), new_task_path %><br>
+<%= link_to t('view.task_list'), tasks_path %>

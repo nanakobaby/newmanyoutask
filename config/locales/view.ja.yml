@@ -20,14 +20,42 @@ ja:
     priority: 優先順位
     peding: 未着手
     high: 高
-    medium: 中
+    middle: 中
     row: 低
+    signup: サインアップ
+    login: ログイン
+    logout: ログアウト
+    ofpage: のページ
+    email: メールアドレス
+    password: パスワード
+    login_failed: ログインに失敗しました！
+    logged_out: ログアウトしました！
+    profile: プロフィール
+    admin_screen: 管理画面
+    user_list: ユーザ一覧
+    user_delete: ユーザを削除する
+    user_create: ユーザを作成する
+    user_update: ユーザを更新する
+    name: 名前
+    email: メールアドレス
+    back_admin_screen: 管理画面に戻る
+
   notice:
-    create: タスクを作成しました！
-    update: タスクを編集しました！
-    destroy: タスクを削除しました！
+    task_create: タスクを作成しました！
+    task_update: タスクを編集しました！
+    task_deleted: タスクを削除しました！
+    not_deleted: 削除できません！
+    login_needed: ログインが必要です！
+    already_logged_in: すでにログインしています！
+    not_authorized: 権限がありません！
+    not_administrator: あなたは管理者ではありません！
+    user_deleted: ユーザを削除しました！
+    user_create: ユーザを登録しました！
+    user_update: ユーザを更新しました！
+    user_deleted: ユーザを削除しました！
+    user_not_deleted: ユーザを削除できません！
   helpers:
-    submit:
-      create: 登録する
-      update: 更新する
-      search: 検索する
+      submit:
+        create: 登録する
+        update: 更新する
+        search: 検索する

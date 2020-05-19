@@ -1,15 +1,16 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
     #params[:sort_expired]に値があれば、終了期限でソートした値を表示させる
     if params[:sort_expired]
-      @tasks = Task.all.order(end_on: :desc).page(params[:page]).per(10)
+      @tasks = current_user.tasks.order(end_on: :desc).page(params[:page]).per(10)
     elsif params[:sort_priority]
-      @tasks = Task.all.order(priority: :asc).page(params[:page]).per(10)
+      @tasks = current_user.tasks.order(priority: :asc).page(params[:page]).per(10)
     elsif
       #値がなければ、Task.allで取り出せるそのままの値を出力
-      @tasks = Task.all.order(created_at: :desc).page(params[:page]).per(10)
+      @tasks = current_user.tasks.order(created_at: :desc).page(params[:page]).per(10)
     end
 
     if params[:search].present?
@@ -28,9 +29,10 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    #login中のユーザのtaskをnew(build)する。
+    @task = current_user.tasks.build(task_params)
     if @task.save
-      redirect_to tasks_path, notice: t('notice.create')
+      redirect_to tasks_path, notice: t('notice.task_create')
     else
       render :new
     end
@@ -44,15 +46,18 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: t('notice.update')
+      redirect_to tasks_path, notice: t('notice.task_update')
     else
       render :edit
     end
   end
 
   def destroy
-    @task.destroy
-    redirect_to tasks_path, notice: t('notice.destroy')
+    if @task.destroy
+      redirect_to tasks_path, notice: t('notice.task_deleted')
+    else
+      redirect_to admin_users_path, notice: t('notice.notdeleted')
+    end
   end
 
   private
@@ -63,4 +68,4 @@ class TasksController < ApplicationController
   def set_task
     @task = Task.find(params[:id])
   end
-  end
+end
