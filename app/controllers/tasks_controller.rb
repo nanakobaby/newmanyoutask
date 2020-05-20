@@ -22,6 +22,7 @@ class TasksController < ApplicationController
         @tasks = Task.status(params[:status]).page(params[:page]).per(10)
       end
     end
+    @tasks = @tasks.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
   end
 
   def new
@@ -62,7 +63,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:task_name, :content, :end_on, :status, :priority)
+    params.require(:task).permit(:task_name, :content, :end_on, :status, :priority, label_ids: [] )
   end
 
   def set_task

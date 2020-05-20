@@ -24,3 +24,6 @@ header{
   padding-top: calc(400 / 1200 * 100%);
   background: url("https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80") center center / cover no-repeat;
 }
+select{
+  color: black;
+}

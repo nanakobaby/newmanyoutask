@@ -4,6 +4,8 @@ RSpec.describe 'タスク管理機能', type: :system do
     @user = FactoryBot.create(:user)
     @task = FactoryBot.create(:task, user: @user)
     @new_task = FactoryBot.create(:new_task, user: @user)
+    @label = FactoryBot.create(:label)
+    FactoryBot.create(:task_label, task:@task, label:@label)
     visit new_session_path
     fill_in "session_email", with: "sample@example.com"
     fill_in "session_password", with: "000000"
@@ -24,6 +26,15 @@ RSpec.describe 'タスク管理機能', type: :system do
         task_list = all('.task_row')
         expect(task_list[0]).to have_content 'new_task'
         expect(task_list[1]).to have_content 'task'
+      end
+    end
+
+    context '検索をした場合' do
+      it "ラベルで検索ができる" do
+        visit tasks_path
+        select "テスト用ラベル", from: "label_id"
+        click_button (I18n.t('helpers.submit.search'))
+        expect(page).to have_content "テスト用ラベル"
       end
     end
 
@@ -83,8 +94,12 @@ RSpec.describe 'タスク管理機能', type: :system do
     context '必要項目を入力して、createボタンを押した場合' do
       it 'データが保存される' do
         visit new_task_path
+        fill_in 'task[task_name]', with: 'task'
+        fill_in 'task[content]', with: 'content'
+        check 'テスト用ラベル'
         click_button (I18n.t('helpers.submit.create'))
         expect(page).to have_content 'task'
+        expect(page).to have_content 'テスト用ラベル'
       end
     end
   end

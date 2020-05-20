@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :labels
   root to: 'tasks#index'
   resources :tasks
   resources :sessions, only: [:new, :create, :destroy]
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
+  get '*path', to: 'application#render_404'
 end
